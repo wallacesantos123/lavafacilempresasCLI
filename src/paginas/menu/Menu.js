@@ -5,8 +5,12 @@ const Menu = function ({Navigation}) {
     return (
         <KeyboardAvoidingView style={Style.container}>
             <View style={Style.opcoes}>
+                <TouchableOpacity style={Style.inicio}>
+                    <Text style={Style.txtinicio}>Inicio</Text>
+                </TouchableOpacity>
+                
                 <TouchableOpacity>
-                    <Text>Inicio</Text>
+                    <Text>Lavagens</Text>
                 </TouchableOpacity>
             </View>
         </KeyboardAvoidingView>
@@ -24,6 +28,20 @@ const Style = new StyleSheet.create({
         height : '10%',
         borderWidth : 1,
         borderRadius : 10
+    },
+
+    inicio : {
+        borderWidth : 1,
+        width : '20%',
+        height : '100%',
+        alignItems : 'center',
+        borderRadius : 10
+    },
+
+    txtinicio : {
+        paddingTop : '20%',
+        fontSize : 20,
+        fontWeight : 'bold'
     }
 })
 

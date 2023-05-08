@@ -7,10 +7,16 @@ const Menu = function ({Navigation}) {
             <View style={Style.painel}>
                 <Text style={Style.titulo}>Lava-Facil Empresas</Text>
                 <View style={Style.financeiro}> 
-                
+                    <Text style={Style.data}>DD/MM/AA</Text>
+                    <Text style={Style.font}>Dinheiro: R$0,00</Text>
+                    <Text style={Style.font}>Cartão/Pix: R$0,00</Text>
+                    <Text style={Style.font}>A Receber: R$0,00</Text>
+                    <Text style={Style.total}>Total: R$0,00</Text>
                 </View>
                 <View style={Style.carros}>
-
+                    <Text>Pátio</Text>
+                    <Text>0</Text>
+                    <Text>icon</Text>
                 </View>
             </View>
         </KeyboardAvoidingView>
@@ -20,7 +26,8 @@ const Menu = function ({Navigation}) {
 const Style = new StyleSheet.create({
     container : {
         width : '100%',
-        height : '100%'
+        height : '100%',
+        backgroundColor : '#000'
     },
 
     painel : {
@@ -41,6 +48,23 @@ const Style = new StyleSheet.create({
         backgroundColor : '#FFF',
         alignSelf : 'baseline',
         marginLeft : '1%',
+    },
+
+    font : {
+        marginLeft : '5%'
+    },
+
+    data : {
+        alignSelf : 'center',
+        marginLeft : '5%',
+        marginBottom : '5%',
+        fontWeight : 'bold'
+    },
+
+    total : {
+        marginTop : '10%',
+        marginLeft : '5%',
+        fontWeight : 'bold'
     },
 
     carros : {

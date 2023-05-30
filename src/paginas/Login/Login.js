@@ -98,7 +98,7 @@ const styles = new StyleSheet.create({
         alignItems : 'center',
         justifyContent : 'center',
         position : 'absolute',
-        marginTop : '2.5%'
+        marginTop : '2%'
     },
 
     container : {
@@ -112,7 +112,7 @@ const styles = new StyleSheet.create({
         fontSize : 20,
         fontWeight : 'bold',
         marginTop : '20%',
-        marginBottom : '25%'
+        marginBottom : '15%'
     },
 
     email : {
@@ -120,7 +120,7 @@ const styles = new StyleSheet.create({
         height : 52,
         backgroundColor : '#FFF',
         color : '#000',
-        marginTop : '80%',
+        marginTop : '70%',
         marginBottom : 25,
         borderWidth : 2,
         borderColor : '#000',

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image } from 'react-native';
 
 const Menu = function ({Navigation}) {
     return (
@@ -14,9 +14,20 @@ const Menu = function ({Navigation}) {
                     <Text style={Style.total}>Total: R$0,00</Text>
                 </View>
                 <View style={Style.carros}>
-                    <Text>Pátio</Text>
-                    <Text>0</Text>
-                    <Text>icon</Text>
+                    <Text style={Style.local}>Pátio</Text>
+                    <Text style={Style.quant_p}>0</Text>
+                    <View style={Style.icon_1}><Image source={require('../../../assets/icon_car.png')} /></View>
+                    <Text style={Style.divisao_1}>|</Text>
+                    <Text style={Style.divisao_1_1}>|</Text>
+                    <Text style={Style.lavados}>Lavados</Text>
+                    <Text style={Style.quant_l}>0</Text>
+                    <View style={Style.icon_2}><Image source={require('../../../assets/icon_car.png')} /></View>
+                    <Text style={Style.divisao_2}>|</Text>
+                    <Text style={Style.divisao_2_1}>|</Text>
+                    <Text style={Style.fila}>Fila</Text>
+                    <Text style={Style.quant_f}>0</Text>
+                    <View style={Style.icon_3}><Image source={require('../../../assets/icon_car.png')} /></View>
+                    
                 </View>
             </View>
         </KeyboardAvoidingView>
@@ -39,7 +50,7 @@ const Style = new StyleSheet.create({
     titulo : {
         fontSize : 20,
         fontWeight : 'bold',
-        color : '#FFF'
+        color : '#FFF',
     },
 
     financeiro : {
@@ -51,29 +62,131 @@ const Style = new StyleSheet.create({
     },
 
     font : {
-        marginLeft : '5%'
+        marginLeft : '5%',
+        fontWeight : 'bold',
+        fontSize : 16,
+        color : '#000'
     },
 
     data : {
         alignSelf : 'center',
         marginLeft : '5%',
         marginBottom : '5%',
-        fontWeight : 'bold'
+        fontWeight : 'bold',
+        color : '#000'
     },
 
     total : {
-        marginTop : '10%',
+        marginTop : '4%',
         marginLeft : '5%',
-        fontWeight : 'bold'
+        fontWeight : 'bold',
+        color : '#000'
     },
 
     carros : {
-        width : '58%',
+        width : '57%',
         height : '80%',
         backgroundColor : '#E6E6E6',
         alignSelf : 'baseline',
-        marginTop : '-31.7%',
-        marginLeft : '42%'
+        marginTop : '-29.2%',
+        marginLeft : '42%',
+    },
+
+    local : {
+        marginLeft : '7.5%',
+        fontWeight : 'bold',
+        fontSize  : 16,
+        color : '#000'
+    },
+    
+    quant_p : {
+        position : 'absolute',
+        marginLeft : '9%',
+        marginTop : '5%',
+        fontSize : 60,
+        color : '#000'
+    },
+
+    icon_1 : {
+        position : 'absolute',
+        marginLeft : '9%',
+        marginTop : '37%',
+    },
+
+    divisao_1 : {
+        position : 'absolute',
+        marginLeft : '30%',
+        fontSize : 60,
+        marginTop : '-5%',
+        color : '#000'
+    },
+
+    divisao_1_1 : {
+        position : 'absolute',
+        marginLeft : '30%',
+        fontSize : 60,
+        marginTop : '16.5%',
+        color : '#000'
+    },
+
+    lavados : {
+        position : 'absolute',
+        marginLeft : '40%',
+        font : 16,
+        fontWeight : 'bold',
+        color : '#000'
+    },
+    
+    quant_l : {
+        position : 'absolute',
+        marginLeft : '44%',
+        marginTop : '5%',
+        fontSize : 60,
+        color : '#000'
+    },
+
+    icon_2 : {
+        position : 'absolute',
+        marginLeft : '44%',
+        marginTop : '37%'
+    },
+
+    divisao_2 : {
+        position : 'absolute',
+        marginLeft : '65%',
+        fontSize : 60,
+        marginTop : '-5%',
+        color : '#000'
+    },
+
+    divisao_2_1 : {
+        position : 'absolute',
+        marginLeft : '65%',
+        fontSize : 60,
+        marginTop : '16.5%',
+        color : '#000'
+    },
+
+    fila : {
+        position : 'absolute',
+        marginLeft : '80%',
+        font : 16,
+        fontWeight : 'bold',
+        color : '#000'
+    },
+
+    quant_f : {
+        position : 'absolute',
+        marginLeft : '78%',
+        marginTop : '5%',
+        fontSize : 60,
+        color : '#000'
+    },
+
+    icon_3 : {
+        position : 'absolute',
+        marginTop : '37%',
+        marginLeft : '78.5%',
     }
 })
 

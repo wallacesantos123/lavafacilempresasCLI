@@ -8,9 +8,9 @@ const Menu = function ({Navigation}) {
                 <Text style={Style.titulo}>Lava-Facil Empresas</Text>
                 <View style={Style.financeiro}> 
                     <Text style={Style.data}>DD/MM/AA</Text>
-                    <Text style={Style.font}>Dinheiro: R$0,00</Text>
-                    <Text style={Style.font}>Cartão/Pix: R$0,00</Text>
-                    <Text style={Style.font}>A Receber: R$0,00</Text>
+                    <Text style={Style.text}>Dinheiro: R$0,00</Text>
+                    <Text style={Style.text}>Cartão/Pix: R$0,00</Text>
+                    <Text style={Style.text}>A Receber: R$0,00</Text>
                     <Text style={Style.total}>Total: R$0,00</Text>
                 </View>
                 <View style={Style.carros}>
@@ -61,7 +61,7 @@ const Style = new StyleSheet.create({
         marginLeft : '1%',
     },
 
-    font : {
+    text : {
         marginLeft : '5%',
         fontWeight : 'bold',
         fontSize : 16,
@@ -131,8 +131,8 @@ const Style = new StyleSheet.create({
 
     lavados : {
         position : 'absolute',
-        marginLeft : '40%',
-        font : 16,
+        marginLeft : '38%',
+        fontSize : 16,
         fontWeight : 'bold',
         color : '#000'
     },
@@ -170,7 +170,7 @@ const Style = new StyleSheet.create({
     fila : {
         position : 'absolute',
         marginLeft : '80%',
-        font : 16,
+        fontSize : 16,
         fontWeight : 'bold',
         color : '#000'
     },

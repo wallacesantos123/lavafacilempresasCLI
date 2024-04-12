@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, StyleSheet, Text, Button, TouchableOpacity, Alert } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { Animated, View, KeyboardAvoidingView, Image, TextInput, StyleSheet, Text, Button, TouchableOpacity, Alert } from 'react-native';
 
 const Login = ({navigation}) => {
     const [ email, setEmail ] = useState(' ');
     const [ senha, setSenha ] = useState(' ');
     const [ status, setStatus ] = useState(' ');
+    const [ load, setLoad] = useState('');
+    const fadeAnim = useRef(new Animated.Value(0)).current;
 
-    /*const loginGet = () => {
-        fetch('https://2f65-190-124-246-235.ngrok.io/lavafacilservidor/login_json.php', {
+    //animações
+    const fadeIn = () => {
+        // Will change fadeAnim value to 1 in 5 seconds
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 5000,
+          useNativeDriver: true,
+        }).start();
+      };
+
+    const loginGet = () => {
+        fetch('http://lavafacilapp.ddns.net/lavafacilservidor/login_json.php', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -22,26 +34,31 @@ const Login = ({navigation}) => {
         .then((response) => response.json())
         .then((json) => setStatus(json));
 
-        if(email == '' || senha == '') {
-            Alert.alert('E-mail e Senha', 'Digite seu E-Mail e Senha para continuar!!!');
-        }
-        else if(JSON.stringify(status) === JSON.stringify("E-mail não cadastrado!")) {
-            Alert.alert('Conta Inexistente', JSON.stringify(status));
-        }
-        else if(JSON.stringify(status) === JSON.stringify("E-mail ou Senha incorreta!")) {
-            Alert.alert('Informação Incorreta', JSON.stringify(status));
-        }
-        else if(JSON.stringify(status) === JSON.stringify("aceito")){
-            navigation.reset({
-                index: 0,
-                routes: [
-                  {
-                    name: 'Menu',
-                  },
-                ],
-              });
-        }
-    }*/
+        fadeIn();
+
+        setTimeout(() => {
+            setLoad(true);
+            if(email == '' || senha == '') {
+                Alert.alert('E-mail e Senha', 'Digite seu E-Mail e Senha para continuar!!!');
+            }
+            else if(JSON.stringify(status) === JSON.stringify("E-mail não cadastrado!")) {
+                Alert.alert('Conta Inexistente', JSON.stringify(status));
+            }
+            else if(JSON.stringify(status) === JSON.stringify("E-mail ou Senha incorreta!")) {
+                Alert.alert('Informação Incorreta', JSON.stringify(status));
+            }
+            else if(JSON.stringify(status) === JSON.stringify("aceito")){
+                navigation.reset({
+                    index: 0,
+                    routes: [
+                      {
+                        name: 'Menu',
+                      },
+                    ],
+                  });
+            }
+        }, 5000);       
+    }
 
     return (
         <KeyboardAvoidingView style={styles.body}>
@@ -68,8 +85,9 @@ const Login = ({navigation}) => {
                 />
 
                 <TouchableOpacity
+                    importantForAccessibility="no-hide-descendants"
                     style={styles.entrar}
-                    onPress={() => navigation.navigate('Menu')}
+                    onPress={() => loginGet()}
                 >
                     <Text style={styles.txtEntrar}>ENTRAR</Text>
                 </TouchableOpacity>
@@ -79,6 +97,23 @@ const Login = ({navigation}) => {
                 >
                     <Text style={styles.txtEntrarCel}>ENTRAR COM CELULAR</Text>
                 </TouchableOpacity>
+
+                <Animated.View
+                    importantForAccessibility="yes"
+                    style={[
+                        styles.fadingContainer,
+                        {
+                            // Bind opacity to animated value
+                            opacity: fadeAnim,
+                        },
+                    ]}>
+                </Animated.View>
+
+                <View
+                    //style={styles.load}
+                >
+                  
+                </View>
             </View>
         </KeyboardAvoidingView>
     )
@@ -172,6 +207,20 @@ const styles = new StyleSheet.create({
         color : '#FFF',
         fontSize : 20,
         fontWeight : 'bold'
+    },
+
+    load : {
+        flex : 1,
+        width : '100%',
+        marginTop : '-150%',
+        backgroundColor : 'rgba(0, 0, 0, 0.5)'
+    },
+
+    fadingContainer: {
+        flex : 1,
+        width : '100%',
+        marginTop : '-150%',
+        backgroundColor : 'rgba(0, 0, 0, 0.5)'
     }
 })
 

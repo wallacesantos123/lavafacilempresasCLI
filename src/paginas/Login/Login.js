@@ -34,7 +34,8 @@ const Login = ({navigation}) => {
         .then((response) => response.json())
         .then((json) => setStatus(json));
 
-        fadeIn();
+        //fadeIn();
+        Alert.alert("Aguarde");
 
         setTimeout(() => {
             setLoad(true);
@@ -99,7 +100,6 @@ const Login = ({navigation}) => {
                 </TouchableOpacity>
 
                 <Animated.View
-                    importantForAccessibility="yes"
                     style={[
                         styles.fadingContainer,
                         {
@@ -217,10 +217,7 @@ const styles = new StyleSheet.create({
     },
 
     fadingContainer: {
-        flex : 1,
-        width : '100%',
-        marginTop : '-150%',
-        backgroundColor : 'rgba(0, 0, 0, 0.5)'
+        
     }
 })
 

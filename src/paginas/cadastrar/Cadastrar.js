@@ -11,13 +11,12 @@ const Cadastrar = ({navigation}) => {
     const [ confSenha, setConfSenha ] = useState(' ');
 
     const CadastrarPost = () => {
-        fetch('http://lavafacil.ddns.net/lavafacilservidor/cadastrar_json.php', {
+        fetch('http://lavafacilapp.ddns.net/lavafacilservidor/cadastrar_json.php', {
             method: 'POST',
-            body: JSON.stringify({
-                nome: nome,
-                cpf: cpf,
-                celular: celular,
+            body: JSON.stringify({       
                 email: email,
+                celular: celular,
+                cpf: cpf, 
                 senha: senha
             }),
             headers: {
@@ -53,6 +52,15 @@ const Cadastrar = ({navigation}) => {
                     autoCompleteType={'tel'}
                     keyboardType={'numeric'}
                     onChangeText={txt => setCelular(txt)}
+                />
+
+                <TextInput
+                    style={styles.cpf}
+                    placeholder={'CPF'}
+                    placeholderTextColor={'#D3D3D3'}
+                    autoCompleteType={'email'}
+                    keyboardType={'default'}
+                    onChangeText={txt => setCpf(txt)}
                 />
 
                 <TextInput

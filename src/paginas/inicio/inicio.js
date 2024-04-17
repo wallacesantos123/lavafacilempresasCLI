@@ -65,7 +65,8 @@ const styles = new StyleSheet.create({
 
   txtEntrar : {
       fontSize : 20,
-      fontWeight : 'bold'
+      fontWeight : 'bold',
+      color : '#000'
   },
 
   cadastrar : {

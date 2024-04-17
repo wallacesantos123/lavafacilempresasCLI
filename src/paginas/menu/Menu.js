@@ -1,11 +1,39 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image } from 'react-native';
+import { Text, View, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image, Alert } from 'react-native';
 
-const Menu = function ({Navigation}) {
+const Menu = function ({navigation}) {
+    const Deslogar = () => {
+        fetch('http://lavafacilapp.ddns.net/lavafacilservidor/deslogar_json.php', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            Alert.alert("Aguarde, Saindo.");
+    
+            setTimeout(() => {
+                navigation.reset({
+                    index: 0,
+                    routes: [
+                      {
+                        name: 'Inicio',
+                      },
+                    ],
+                });
+            }, 5000);       
+    }
+
     return (
         <KeyboardAvoidingView style={Style.container}>
             <View style={Style.painel}>
-                <Text style={Style.titulo}>Lava-Facil Empresas</Text>
+                <TouchableOpacity
+                    onPress={() => Deslogar()}
+                >
+                    <Text style={Style.titulo}>Lava-Facil Empresas</Text>
+                </TouchableOpacity>
+                
                 <View style={Style.financeiro}> 
                     <Text style={Style.data}>DD/MM/AA</Text>
                     <Text style={Style.text}>Dinheiro: R$0,00</Text>
@@ -88,7 +116,7 @@ const Style = new StyleSheet.create({
         height : '80%',
         backgroundColor : '#E6E6E6',
         alignSelf : 'baseline',
-        marginTop : '-29.2%',
+        marginTop : '-37.8%',
         marginLeft : '42%',
     },
 

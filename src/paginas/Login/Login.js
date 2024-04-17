@@ -28,7 +28,7 @@ const Login = ({navigation}) => {
             body: JSON.stringify({
                 email : email,
                 senha : senha,
-                tipo : 'Cliente'
+                tipo : 'Empresa'
             })
         })
         .then((response) => response.json())
@@ -38,7 +38,6 @@ const Login = ({navigation}) => {
         Alert.alert("Aguarde");
 
         setTimeout(() => {
-            setLoad(true);
             if(email == '' || senha == '') {
                 Alert.alert('E-mail e Senha', 'Digite seu E-Mail e Senha para continuar!!!');
             }
@@ -155,7 +154,7 @@ const styles = new StyleSheet.create({
         height : 52,
         backgroundColor : '#FFF',
         color : '#000',
-        marginTop : '70%',
+        marginTop : '80%',
         marginBottom : 25,
         borderWidth : 2,
         borderColor : '#000',

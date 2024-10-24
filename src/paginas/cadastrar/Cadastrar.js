@@ -11,13 +11,14 @@ const Cadastrar = ({navigation}) => {
     const [ confSenha, setConfSenha ] = useState(' ');
 
     const CadastrarPost = () => {
-        fetch('http://lavafacilapp.ddns.net/lavafacilservidor/cadastrar_json.php', {
+        fetch('http://lavafacil.ddns.net/lavafacilservidor/cadastrar_json.php', {
             method: 'POST',
             body: JSON.stringify({       
                 email: email,
                 celular: celular,
                 cpf: cpf, 
-                senha: senha
+                senha: senha,
+                tipo: "Empresa"
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

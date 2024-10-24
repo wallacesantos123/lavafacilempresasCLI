@@ -19,7 +19,7 @@ const Login = ({navigation}) => {
       };
 
     const loginGet = () => {
-        fetch('http://lavafacilapp.ddns.net/lavafacilservidor/login_json.php', {
+        fetch('http://lavafacil.ddns.net/lavafacilservidor/login_json.php', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -35,7 +35,7 @@ const Login = ({navigation}) => {
         .then((json) => setStatus(json));
 
         //fadeIn();
-        Alert.alert("Aguarde");
+       // Alert.alert("Aguarde");
 
         setTimeout(() => {
             if(email == '' || senha == '') {
@@ -57,7 +57,7 @@ const Login = ({navigation}) => {
                     ],
                   });
             }
-        }, 5000);       
+        }, 0);       
     }
 
     return (

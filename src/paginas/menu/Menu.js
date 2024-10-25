@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image, 
 
 const Menu = function ({navigation}) {
     const Deslogar = () => {
-        fetch('http://lavafacilapp.ddns.net/lavafacilservidor/deslogar_json.php', {
+        fetch('http://lavafacil.ddns.net/lavafacilservidor/deslogar_json.php', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

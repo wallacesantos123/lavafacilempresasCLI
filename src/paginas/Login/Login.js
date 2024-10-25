@@ -35,7 +35,7 @@ const Login = ({navigation}) => {
         .then((json) => setStatus(json));
 
         //fadeIn();
-       // Alert.alert("Aguarde");
+        Alert.alert("Aguarde");
 
         setTimeout(() => {
             if(email == '' || senha == '') {
@@ -57,7 +57,7 @@ const Login = ({navigation}) => {
                     ],
                   });
             }
-        }, 0);       
+        }, 5000);       
     }
 
     return (

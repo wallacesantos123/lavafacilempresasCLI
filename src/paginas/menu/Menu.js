@@ -2,6 +2,10 @@ import * as React from 'react';
 import { Text, View, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image, Alert } from 'react-native';
 
 const Menu = function ({navigation}) {
+    const [nome, setNome] = React.useState('');
+    const [modelo, setModelo] = React.useState('');
+    const [count, setCount] = React.useState(0);
+
     const Deslogar = () => {
         fetch('http://lavafacil.ddns.net/lavafacilservidor/deslogar_json.php', {
                 method: 'POST',
@@ -56,6 +60,19 @@ const Menu = function ({navigation}) {
                     <Text style={Style.quant_f}>0</Text>
                     <View style={Style.icon_3}><Image source={require('../../../assets/icon_car.png')} /></View>
                     
+                </View>
+
+                <View style={Style.lavagens}>
+                    <Text style={Style.nome}>Nome Completo</Text>
+                    <Text style={Style.modelo}>Carro</Text>
+
+                    <TouchableOpacity style={Style.bt_sim}>
+                        <Text Style={Style.txt_sim}>Sim</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={Style.bt_nao}>
+                        <Text Style={Style.txt_nao}>Não</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </KeyboardAvoidingView>
@@ -116,7 +133,7 @@ const Style = new StyleSheet.create({
         height : '80%',
         backgroundColor : '#E6E6E6',
         alignSelf : 'baseline',
-        marginTop : '-37.8%',
+        marginTop : '-33.4%',
         marginLeft : '42%',
     },
 
@@ -215,6 +232,46 @@ const Style = new StyleSheet.create({
         position : 'absolute',
         marginTop : '37%',
         marginLeft : '78.5%',
+    },
+
+    lavagens : {
+        width : 'auto',
+        height : '25%',
+        minWidth : '98%',
+        marginTop : '2%',
+        borderWidth : 2,
+        borderColor : 'green',
+        backgroundColor : '#FFF',
+    },
+
+    nome : {
+        marginTop : '2.5%',
+        marginLeft : '2%',
+        fontWeight : 'bold'
+    },
+    
+    modelo : {
+        alignSelf : 'center',
+        marginTop : '-5%',
+        fontWeight : 'bold'
+    },
+
+    bt_sim : {
+        marginLeft : '70%',
+        marginTop : '-5%',
+    },
+
+    bt_nao : {
+        marginLeft : '89%',
+        marginTop : '-5%',
+    },
+
+    txt_sim : {
+        fontWeight : 'bold'
+    },
+
+    txt_nao : {
+        fontWeight : 'bold'
     }
 })
 

@@ -5,15 +5,30 @@ const Menu = function ({navigation}) {
     const [nome, setNome] = React.useState('');
     const [modelo, setModelo] = React.useState('');
     const [count, setCount] = React.useState(0);
+    const [ status, setStatus ] = React.useState(' ');
+
+    const Lavagens = () => {
+        fetch('http://lavafacil.ddns.net/lavafacilservidor/request_lavagens.php' ,{
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((response) => response.json())
+        .then((json) => setStatus(json));
+
+        console.log(status);
+    }
 
     const Deslogar = () => {
         fetch('http://lavafacil.ddns.net/lavafacilservidor/deslogar_json.php', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            });
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
     
             Alert.alert("Aguarde, Saindo.");
     
@@ -66,7 +81,10 @@ const Menu = function ({navigation}) {
                     <Text style={Style.nome}>Nome Completo</Text>
                     <Text style={Style.modelo}>Carro</Text>
 
-                    <TouchableOpacity style={Style.bt_sim}>
+                    <TouchableOpacity 
+                        style={Style.bt_sim}
+                        onPress = {() => Lavagens()}
+                    >
                         <Text Style={Style.txt_sim}>Sim</Text>
                     </TouchableOpacity>
 

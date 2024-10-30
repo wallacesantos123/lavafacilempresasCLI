@@ -34,6 +34,8 @@ const Login = ({navigation}) => {
         .then((response) => response.json())
         .then((json) => setStatus(json));
 
+        console.log(status);
+
         //fadeIn();
         //Alert.alert("Aguarde");
 
